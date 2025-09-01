@@ -7,6 +7,11 @@ from urllib.parse import quote_plus
 
 # ====== CONFIG (ENV) ======
 IST = ZoneInfo("Asia/Kolkata")
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return jsonify({"ok": True, "msg": "Bot is live!"})
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]                # e.g. 123456:ABC...
 CHANNEL_ID = os.environ["CHANNEL_ID"]              # e.g. -1001234567890  (numeric recommended)
